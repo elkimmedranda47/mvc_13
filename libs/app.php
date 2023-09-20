@@ -42,7 +42,8 @@ class App{
 
                 //# Elementos del arreglo
                 //echo  $nparm =sizeof($url);
-                 $nparmetro =sizeof($url);
+             $nparmetro =sizeof($url);
+          
                if ($nparmetro > 1)
                {
                    if ($nparmetro > 2)
@@ -55,7 +56,7 @@ class App{
                    
                    } else { $controller->{$url[1]}();}
                    
-               } else { $controller->render()  ;
+               } else {// $controller->render()  ;
              }
                
 

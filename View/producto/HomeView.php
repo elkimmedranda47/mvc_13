@@ -10,37 +10,54 @@
 <body>
     <div class="container mt-5">
     <div class="container mt-5">
-    <h1 class="mb-3">Crear Nuevo Producto</h1>
-    <!-- Formulario para crear un nuevo producto -->
-    <form action="/mvc_13/ProductoController/crearProducto/" method="POST" class="mb-3">
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="referencia">Referencia:</label>
-            <input type="text" name="referencia" id="referencia" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="precio">Precio:</label>
-            <input type="number" name="precio" id="precio" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="peso">Peso:</label>
-            <input type="number" name="peso" id="peso" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="categoria">Categoría:</label>
-            <input type="text" name="categoria" id="categoria" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="stock">Stock:</label>
-            <input type="number" name="stock" id="stock" class="form-control" required>
-        </div>
+    <?php
+// Obtén el producto por su ID
+if (isset($_GET['id'])) {
+    $producto = $tuControlador->getProductoById($_GET['id']); // Asegúrate de tener una instancia de tu controlador y reemplaza 'tuControlador' por el nombre correcto
+} else {
+    $producto = array(
+        'nombre' => '',
+        'referencia' => '',
+        'precio' => '',
+        'peso' => '',
+        'categoria' => '',
+        'stock' => ''
+    );
+}
+?>
 
-        <button type="submit" name="crear_producto" class="btn btn-success">Crear Producto</button>
-    </form>
-</div>
+<!-- Formulario para crear/editar un producto -->
+<h1 class="mb-3">Crear/Editar Producto</h1>
+<form action="/mvc_13/ProductoController/" method="POST" class="mb-3">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" value="<?= htmlspecialchars($producto['nombre']) ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="referencia">Referencia:</label>
+        <input type="text" name="referencia" id="referencia" class="form-control" value="<?= htmlspecialchars($producto['referencia']) ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" class="form-control" value="<?= htmlspecialchars($producto['precio']) ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="peso">Peso:</label>
+        <input type="number" name="peso" id="peso" class="form-control" value="<?= htmlspecialchars($producto['peso']) ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="categoria">Categoría:</label>
+        <input type="text" name="categoria" id="categoria" class="form-control" value="<?= htmlspecialchars($producto['categoria']) ?>" required>
+    </div>
+    <div class="form-group">
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" id="stock" class="form-control" value="<?= htmlspecialchars($producto['stock']) ?>" required>
+    </div>
+
+    <button type="submit" name="crear_producto" class="btn btn-success">Crear Producto</button>
+    <button type="submit" name="editar_producto" class="btn btn-success">Editar</button>
+</form>
+
        
 
         <h1 class="mb-3">Lista de Productos</h1>
@@ -75,7 +92,7 @@
                         <td><?php echo $producto['fecha_creacion']; ?></td>
                         <td>
                         
-                            <a href="/mvc_13/ProductoController/eliminarProducto/<?php echo $producto['id']; ?>" class="btn btn-primary btn-sm">editar</a>
+                            <a href="/mvc_13/ProductoController/retornarProducto/<?php echo $producto['id']; ?>" class="btn btn-primary btn-sm">editar</a>
                             <a href="/mvc_13/ProductoController/eliminarProducto/<?php echo $producto['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
 
                     </tr>

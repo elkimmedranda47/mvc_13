@@ -20,26 +20,28 @@ class ProductoController {
 
     public function crearProducto($data) {
 
-        var_dump($data);
+       // var_dump($data);
+        
        
         $resultado = $this->modelo->insertarProducto($data);
         if ($resultado) {
-            // Creación exitosa, redirige a la lista de productos o muestra un mensaje de éxito
+         
         } else {
-            // Fallo en la creación, muestra un mensaje de error
+            
         }
     }
 
     public function editarProducto($id, $data) {
-        // Validar los datos del formulario antes de actualizarlos en la base de datos
-        // Puedes agregar lógica de validación aquí
+       
+        echo $id;
+        echo "<br>";
+        var_dump($data); 
 
-        // Luego, llama al modelo para actualizar el producto
         $resultado = $this->modelo->updateProducto($id, $data);
         if ($resultado) {
-            // Actualización exitosa, redirige a la lista de productos o muestra un mensaje de éxito
+   
         } else {
-            // Fallo en la actualización, muestra un mensaje de error
+            
         }
     }
 
@@ -60,6 +62,20 @@ class ProductoController {
         }
         
     }
+
+    public function retornarProducto($id) {
+        
+        $id_producdo=$id[0];
+        $numeroEntero = intval( $id_producdo);
+          
+      
+          $producto = $this->modelo->getProductoById( $numeroEntero);
+          print_r( $producto);
+       
+         
+     }
+
+
 }
 
 // Crear una instancia del controlador
@@ -72,24 +88,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['listar'])) {
     $id = $_GET['id'];
     $controlador->verProducto($id);
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crear_producto'])) {
-    // Obtener los datos del formulario de creación
+   
     $data = [
         'nombre' => $_POST['nombre'],
-        'descripcion' => $_POST['descripcion'],
+        'referencia' => $_POST['referencia'],
         'precio' => $_POST['precio'],
+        'peso' => $_POST['peso'],
+        'categoria' => $_POST['categoria'],
+        'stock' => $_POST['stock']
     ];
     $controlador->crearProducto($data);
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['editar']) && isset($_GET['id'])) {
-    // Lógica para cargar el formulario de edición (puedes implementar esto)
+
+   
+
+
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editar_producto'])) {
-    // Obtener los datos del formulario de edición
-    $id = $_POST['id']; // ID del producto a editar
+    
+    $id = $_POST['id']; 
     $data = [
         'nombre' => $_POST['nombre'],
-        'descripcion' => $_POST['descripcion'],
+        'referencia' => $_POST['referencia'],
         'precio' => $_POST['precio'],
+        'peso' => $_POST['peso'],
+        'categoria' => $_POST['categoria'],
+        'stock' => $_POST['stock']
     ];
     $controlador->editarProducto($id, $data);
+
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['eliminar']) && isset($_GET['id'])) {
     // Lógica para cargar el formulario de confirmación de eliminación (puedes implementar esto)
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_producto'])) {

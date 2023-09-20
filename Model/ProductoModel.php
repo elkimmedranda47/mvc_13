@@ -53,7 +53,7 @@ class ProductoModel {
     
 
 
-/* 
+
 
     public function getProductoById($id) {
         $query = "SELECT * FROM producto WHERE id = :id";
@@ -63,7 +63,7 @@ class ProductoModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
+/* 
 
 public function insertProducto($data) {
         $query = "INSERT INTO producto (nombre, descripcion, precio) VALUES (:nombre, :descripcion, :precio)";

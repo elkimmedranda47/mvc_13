@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
-    <!-- Agrega los enlaces a los archivos de Bootstrap -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
     <div class="container mt-5">
     <?php
-// Obtén el producto por su ID
+
 if (isset($_GET['id'])) {
-    $producto = $tuControlador->getProductoById($_GET['id']); // Asegúrate de tener una instancia de tu controlador y reemplaza 'tuControlador' por el nombre correcto
+    $producto = $tuControlador->getProductoById($_GET['id']); 
 } else {
     $producto = array(
         'nombre' => '',
@@ -26,37 +26,8 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<!-- Formulario para crear/editar un producto -->
-<h1 class="mb-3">Crear/Editar Producto</h1>
-<form action="/mvc_13/ProductoController/" method="POST" class="mb-3">
-    <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" class="form-control" value="<?= htmlspecialchars($producto['nombre']) ?>" required>
-    </div>
-    <div class="form-group">
-        <label for="referencia">Referencia:</label>
-        <input type="text" name="referencia" id="referencia" class="form-control" value="<?= htmlspecialchars($producto['referencia']) ?>" required>
-    </div>
-    <div class="form-group">
-        <label for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" class="form-control" value="<?= htmlspecialchars($producto['precio']) ?>" required>
-    </div>
-    <div class="form-group">
-        <label for="peso">Peso:</label>
-        <input type="number" name="peso" id="peso" class="form-control" value="<?= htmlspecialchars($producto['peso']) ?>" required>
-    </div>
-    <div class="form-group">
-        <label for="categoria">Categoría:</label>
-        <input type="text" name="categoria" id="categoria" class="form-control" value="<?= htmlspecialchars($producto['categoria']) ?>" required>
-    </div>
-    <div class="form-group">
-        <label for="stock">Stock:</label>
-        <input type="number" name="stock" id="stock" class="form-control" value="<?= htmlspecialchars($producto['stock']) ?>" required>
-    </div>
 
-    <button type="submit" name="crear_producto" class="btn btn-success">Crear Producto</button>
-    <button type="submit" name="editar_producto" class="btn btn-success">Editar</button>
-</form>
+
 
        
 
@@ -93,16 +64,18 @@ if (isset($_GET['id'])) {
                         <td>
                         
                             <a href="/mvc_13/ProductoController/retornarProducto/<?php echo $producto['id']; ?>" class="btn btn-primary btn-sm">editar</a>
-                            <a href="/mvc_13/ProductoController/eliminarProducto/<?php echo $producto['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/mvc_13/ProductoController?crear" class="btn btn-success">Crear</a>
+                            <a href="/mvc_13/ProductoController" class="btn btn-danger btn-sm">Eliminar</a>
 
+                            
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
 
         <h1 class="mb-3">Registrar Venta</h1>
-        <!-- Formulario para registrar una venta -->
-        <form action="controlador_ventas.php" method="POST" class="mb-3">
+      
+        <form action="VentaController" method="POST" class="mb-3">
             <div class="form-group">
                 <label for="id_producto">ID del Producto:</label>
                 <input type="number" name="id_producto" id="id_producto" class="form-control" required>
@@ -111,15 +84,12 @@ if (isset($_GET['id'])) {
                 <label for="cantidad">Cantidad:</label>
                 <input type="number" name="cantidad" id="cantidad" class="form-control" required>
             </div>
-            <div class="form-group">
-                <label for="valor">Valor Total:</label>
-                <input type="number" name="valor" id="valor" class="form-control" required>
-            </div>
+            
             <button type="submit" name="registrar_venta" class="btn btn-success">Registrar Venta</button>
         </form>
     </div>
     
-    <!-- Agrega los scripts de Bootstrap -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

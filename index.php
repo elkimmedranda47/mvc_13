@@ -12,11 +12,19 @@ require_once "libs/app.php";
 $p = new App();
 $p->inicio();
 */
+
 require_once "libs/app.php";
+
 $p = new App();
+
+
+//header("Location: ProductoController?listar");
+
 require_once('Controller/ProductoController.php');
-
-
 $controlador = new ProductoController();
 $controlador->listarProductos();
+
+
+
+//ProductoController?listar
 ?>

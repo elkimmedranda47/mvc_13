@@ -34,6 +34,7 @@ class App{
             $url = explode('/',$url);
             //var_dump($url);
             $archivoControlador = 'Controller/'.$url[0] . '.php';
+            
             if(file_exists($archivoControlador))
             {
                 require_once $archivoControlador;
@@ -63,7 +64,7 @@ class App{
 
                
                 
-            }else{//$controller = new Erro();
+            }else{$controller = new Erro();
             }
 
 

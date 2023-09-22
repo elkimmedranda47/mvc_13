@@ -63,41 +63,26 @@ class ProductoModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-/* 
 
-public function insertProducto($data) {
-        $query = "INSERT INTO producto (nombre, descripcion, precio) VALUES (:nombre, :descripcion, :precio)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':nombre', $data['nombre']);
-        $stmt->bindParam(':descripcion', $data['descripcion']);
-        $stmt->bindParam(':precio', $data['precio']);
-        
-        if ($stmt->execute()) {
-            return true; // Inserción exitosa
-        } else {
-            return false; // Fallo en la inserción
-        }
-    }
+
 
     public function updateProducto($id, $data) {
-        
-
-
-        $query = "UPDATE producto SET nombre = :nombre, descripcion = :descripcion, precio = :precio WHERE id = :id";
+        $query = "UPDATE producto SET nombre_producto = :nombre, referencia = :referencia, precio = :precio, peso = :peso, categoria = :categoria, stock = :stock WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':nombre', $data['nombre']);
-        $stmt->bindParam(':descripcion', $data['descripcion']);
+        $stmt->bindParam(':referencia', $data['referencia']);
         $stmt->bindParam(':precio', $data['precio']);
+        $stmt->bindParam(':peso', $data['peso']);
+        $stmt->bindParam(':categoria', $data['categoria']);
+        $stmt->bindParam(':stock', $data['stock']);
         $stmt->bindParam(':id', $id);
-
+    
         if ($stmt->execute()) {
             return true; // Actualización exitosa
         } else {
             return false; // Fallo en la actualización
         }
-    
-    }*/
-
+    }
 
 
 }

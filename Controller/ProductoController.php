@@ -134,9 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['listar'])) {
 
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['eliminar']) && isset($_GET['id'])) {
     // Lógica para cargar el formulario de confirmación de eliminación (puedes implementar esto)
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_producto'])) {
+} elseif ( isset($_POST['eliminar_producto'])) {
   
-  
+  echo  $id = $_POST['id'];
 
     $id = $_POST['id']; // ID del producto a eliminar
     $controlador->eliminarProducto($id);

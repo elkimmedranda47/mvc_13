@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
                         
                             <a href="/mvc_13/ProductoController/retornarProducto/<?php echo $producto['id']; ?>" class="btn btn-primary btn-sm">editar</a>
                             <a href="/mvc_13/ProductoController?crear" class="btn btn-success">Crear</a>
-                            <a href="/mvc_13/ProductoController" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/mvc_13/ProductoController/eliminarProducto/<?php echo $producto['id']; ?>" class="btn btn-danger btn-sm">Eliminar</a>
 
                             
                     </tr>

@@ -25,9 +25,9 @@ class ProductoModel {
         $stmt->bindParam(':id', $id);
 
         if ($stmt->execute()) {
-            return true; // Eliminación exitosa
+            return true; 
         } else {
-            return false; // Fallo en la eliminación
+            return false; 
         }
     }
 
@@ -45,9 +45,9 @@ class ProductoModel {
         $stmt->bindParam(':stock', $data['stock']);
     
         if ($stmt->execute()) {
-            return true; // Creación exitosa
+            return true; 
         } else {
-            return false; // Fallo en la creación
+            return false; 
         }
     }
     
@@ -78,9 +78,9 @@ class ProductoModel {
         $stmt->bindParam(':id', $id);
     
         if ($stmt->execute()) {
-            return true; // Actualización exitosa
+            return true; 
         } else {
-            return false; // Fallo en la actualización
+            return false; 
         }
     }
 

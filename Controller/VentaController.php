@@ -1,7 +1,7 @@
 <?php
 require_once '../MVC_13/Model/VentaModel.php';
 
-class VentaControlador {
+class VentaController {
 
     private $modelo;
 
@@ -23,10 +23,9 @@ class VentaControlador {
         }
     }
 
-   
-}
-
-$controlador = new VentaControlador();
+    public function procesorVenta() {
+        
+        $controlador = new VentaController();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar_venta'])) {
     $idProducto = $_POST['id_producto'];
@@ -34,10 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrar_venta'])) {
     
     $resultado = $controlador->registrarVenta($idProducto, $cantidad);
 
-    require_once('Controller/ProductoController.php');
-$controlador = new ProductoController();
-$controlador->listarProductos();
    
 
 }
+       
+    
+    }
+
+   
+}
+
+
 ?>

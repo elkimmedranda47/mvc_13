@@ -7,11 +7,12 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+    
 <body>
     <div class="container mt-5">
     <div class="container mt-5">
     <?php
-
+/*
 if (isset($_GET['id'])) {
     $producto = $tuControlador->getProductoById($_GET['id']); 
 } else {
@@ -23,7 +24,7 @@ if (isset($_GET['id'])) {
         'categoria' => '',
         'stock' => ''
     );
-}
+}*/
 ?>
 
 
@@ -75,7 +76,7 @@ if (isset($_GET['id'])) {
 
         <h1 class="mb-3">Registrar Venta</h1>
       
-        <form action="VentaController" method="POST" class="mb-3">
+        <form action="/mvc_13/VentaController/procesorVenta" method="POST" class="mb-3">
             <div class="form-group">
                 <label for="id_producto">ID del Producto:</label>
                 <input type="number" name="id_producto" id="id_producto" class="form-control" required>
@@ -85,7 +86,7 @@ if (isset($_GET['id'])) {
                 <input type="number" name="cantidad" id="cantidad" class="form-control" required>
             </div>
             
-            <button type="submit" name="registrar_venta" class="btn btn-success">Registrar Venta</button>
+            <button type="submit" name="registrar_venta" class="btn btn-success" >Registrar Venta</button>
         </form>
     </div>
     

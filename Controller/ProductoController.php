@@ -15,15 +15,12 @@ class ProductoController {
 
     public function verProducto($id) {
         $producto = $this->modelo->getProductoById($id);
-       // include __DIR__ . '/../../MVC_13/View/producto/VerProducto.php'; // Asegúrate de tener una vista adecuada para mostrar un producto
+      
     }
 
     public function crearProducto($data) {
 
-       // var_dump($data);
-        
-       
-      // include __DIR__ . '/../../MVC_13/View/producto/CrearProducto.php';
+     
         $resultado = $this->modelo->insertarProducto($data);
         if ($resultado) {
          echo "producto crerado";
@@ -35,9 +32,9 @@ class ProductoController {
 
     public function editarProducto($id, $data) {
        
-        echo $id;
-        echo "<br>";
-        var_dump($data); 
+      //  echo $id;
+       // echo "<br>";
+       // var_dump($data); 
 
         $resultado = $this->modelo->updateProducto($id, $data);
         if ($resultado) {
@@ -60,7 +57,7 @@ class ProductoController {
           
 
         } else {
-            // Fallo en la eliminación, muestra un mensaje de error
+        
         }
         
     }
